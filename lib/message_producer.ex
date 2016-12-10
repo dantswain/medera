@@ -1,7 +1,6 @@
-defmodule SlackIngestor.MessageProducer do
+defmodule Medera.MessageProducer do
   @moduledoc ""
   alias Experimental.GenStage
-  alias SlackIngestor.Connector
 
   use GenStage
 
@@ -10,7 +9,6 @@ defmodule SlackIngestor.MessageProducer do
   end
 
   def init(token) do
-    Connector.start_link(token)
     {:producer, {:queue.new, 0}}
   end
 
